@@ -1,0 +1,19 @@
+---
+- name: Open port 8443 for Firewalld
+  hosts: your_target_host
+  become: yes
+
+  tasks:
+    - name: Open TCP port 8443
+      ansible.posix.firewalld:
+        port: 8443/tcp
+        permanent: yes
+        state: enabled
+      notify:
+        - Restart firewalld
+
+  handlers:
+    - name: Restart firewalld
+      ansible.builtin.systemd:
+        name: firewalld
+        state: restarted

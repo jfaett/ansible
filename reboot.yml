@@ -1,0 +1,8 @@
+---
+- name: Reboot server
+  hosts: your_target_host
+  become: yes
+
+  tasks:
+    - name: Reboot
+      reboot:
