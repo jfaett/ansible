@@ -1,0 +1,19 @@
+---
+- name: Open port a port for Firewalld
+  hosts: your_target_host
+  become: yes
+
+  tasks:
+    - name: Open port
+      ansible.posix.firewalld:
+        port:  "{{ port }}/{{ proto }}"
+        permanent: yes
+        state: enabled
+      notify:
+        - Restart firewalld
+
+  handlers:
+    - name: Restart firewalld
+      ansible.builtin.systemd:
+        name: firewalld
+        Qstate: restarted
