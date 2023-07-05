@@ -1,8 +1,11 @@
 ---
-- name: Reboot server
-  hosts: your_target_host
-  become: yes
-
+- name: Linux Reboot Demo
+  hosts: all
+  gather_facts: no
+  remote_user: root
+  become: true
+ 
   tasks:
-    - name: Reboot
-      reboot:
+    - name: Reboot the machine (Wait for 15 seconds)
+      ansible.builtin.reboot:
+        reboot_timeout: 15
