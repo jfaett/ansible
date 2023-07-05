@@ -6,7 +6,7 @@
   tasks:
     - name: Open port
       ansible.posix.firewalld:
-        port:  "{{ port }}/{{ proto }}"
+        port:  "{{ portnumber }}/{{ proto }}"
         permanent: yes
         state: enabled
       notify:
