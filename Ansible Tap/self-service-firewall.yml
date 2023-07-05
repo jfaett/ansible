@@ -14,4 +14,4 @@
 
   handlers:
     - name: Restart firewalld
-      ansible.builtin.shell: systemctl firewalld restart
+      ansible.builtin.shell: systemctl firewalld restart && firewall-cmd --list-all
