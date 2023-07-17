@@ -1,6 +1,7 @@
 ---
 - name: My first playbook
   hosts: all
+# Not required 
   become: true
   tasks:
   - name: Ping
