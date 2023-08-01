@@ -1,0 +1,6 @@
+---
+- name: My Cool Playbook
+  hosts: all
+  tasks:
+  - name: Perform a ping
+    ansible.builtin.ping:
